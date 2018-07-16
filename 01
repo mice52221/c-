@@ -1,0 +1,52 @@
+#include <iostream>  
+#include <string>  
+using namespace std;
+class Student
+{
+public:
+	void setStudent(string num, int chi, int mat, int eng)
+	{
+		number = num;
+		Chinese = chi;
+		Math = mat;
+		English = eng;
+	}
+	int avery(Student& s)
+	{
+		return(s.Chinese + s.English + s.Math) / 3;
+	}
+ 
+	bool pass(Student& s)
+	{
+		bool f = false;
+		if (!(s.Chinese<60 || s.English<60 || s.Math<60))
+		{
+			f = true;
+		}
+		return f;
+	}
+private:
+	string number;
+	int Chinese, Math, English;
+};
+ 
+ 
+int main()
+{
+	Student student;
+	string number; int Chinese; int Math;  int English;
+ 
+	while (cin >> number >> Chinese >> Math >> English)
+	{
+		student.setStudent(number, Chinese, Math, English);
+ 
+		cout <<"该生的平均成绩： "<< student.avery(student) << endl;
+		if (student.pass(student))
+			cout << "pass" << endl;
+		else
+			cout << "not pass" << endl;
+		
+	}
+		
+	return 0;
+}
